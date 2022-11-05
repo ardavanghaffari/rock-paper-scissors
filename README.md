@@ -8,11 +8,11 @@ principles, accompanied with cost-effective tests!
 # Running the application
 Produce a new JAR from project root, using:
 
-  mvn clean install
+  ```mvn clean install```
 
 and run as:
 
-  java -jar PRS-1.0-SNAPSHOT-jar-with-dependencies.jar arg
+  ```java -jar PRS-1.0-SNAPSHOT-jar-with-dependencies.jar $arg```
 
 where arg is the number of times the game can be played. It's optional. It
 defaults to 5 if not provided. The game can be played between 1 and 20 rounds.
