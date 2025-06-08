@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.game'
+version = '1.0-SNAPSHOT'
+description = 'Rock Paper Scissors Game'
+
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+application {
+    mainClass = 'com.game.prs.PrsApplication'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation libs.junit.jupiter.engine
+    testImplementation libs.mockito.core
+    testImplementation libs.mockito.junit.jupiter
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "started", "passed", "failed", "skipped"
+        exceptionFormat "full"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+}

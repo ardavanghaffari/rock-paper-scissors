@@ -1,0 +1,9 @@
+[versions]
+junit-jupiter-engine = "5.8.2"
+mockito-core = "4.8.1"
+mockito-junit-jupiter = "4.8.1"
+
+[libraries]
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter-engine" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito-core" }
+mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito-junit-jupiter" }
