@@ -1,9 +1,9 @@
-package com.game.prs.player;
+package com.game.rps.player;
 
-import com.game.prs.PrsGame;
-import com.game.prs.TextBasedUserInterface;
-import com.game.prs.weapon.Weapon;
-import com.game.prs.weapon.WeaponFactory;
+import com.game.rps.Game;
+import com.game.rps.TextBasedUserInterface;
+import com.game.rps.weapon.Weapon;
+import com.game.rps.weapon.WeaponFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class HumanTest {
   @Mock
-  PrsGame game;
+  Game game;
   @Mock
   WeaponFactory weaponFactory;
   @Mock

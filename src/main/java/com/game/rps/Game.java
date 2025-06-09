@@ -1,11 +1,11 @@
-package com.game.prs;
+package com.game.rps;
 
-import com.game.prs.player.Player;
-import com.game.prs.weapon.WeaponFactory;
+import com.game.rps.player.Player;
+import com.game.rps.weapon.WeaponFactory;
 
 import java.util.Optional;
 
-public class PrsGame {
+public class Game {
   private final static String WELCOME = "Welcome to the Paper-Rock-Scissors game!";
   private final static String SEPARATOR = "-".repeat(40);
   private final static String DRAW_MESSAGE = "It's a draw!";
@@ -25,7 +25,7 @@ public class PrsGame {
     return userInterface;
   }
 
-  public PrsGame(Player player1, Player player2, WeaponFactory weaponFactory,
+  public Game(Player player1, Player player2, WeaponFactory weaponFactory,
                  TextBasedUserInterface userInterface, Integer rounds) {
     this.player1 = player1;
     this.player2 = player2;

@@ -1,7 +1,7 @@
-package com.game.prs.player;
+package com.game.rps.player;
 
-import com.game.prs.PrsGame;
-import com.game.prs.weapon.Weapon;
+import com.game.rps.Game;
+import com.game.rps.weapon.Weapon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -65,6 +65,6 @@ public class PlayerTest {
 
   public class PlayerDouble extends Player {
     @Override
-    public void chooseWeapon(PrsGame game) {}
+    public void chooseWeapon(Game game) {}
   }
 }

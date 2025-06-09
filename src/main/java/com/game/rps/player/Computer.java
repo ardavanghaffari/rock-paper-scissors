@@ -1,10 +1,10 @@
-package com.game.prs.player;
+package com.game.rps.player;
 
-import com.game.prs.PrsGame;
+import com.game.rps.Game;
 
 public class Computer extends Player {
   @Override
-  public void chooseWeapon(PrsGame game) {
+  public void chooseWeapon(Game game) {
     setWeapon(game.getWeaponFactory().create());
     game.getUserInterface().display(String.format("%s chose: %s", this, getWeapon()));
   }

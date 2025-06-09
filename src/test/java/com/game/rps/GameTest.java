@@ -1,7 +1,7 @@
-package com.game.prs;
+package com.game.rps;
 
-import com.game.prs.player.Player;
-import com.game.prs.weapon.WeaponFactory;
+import com.game.rps.player.Player;
+import com.game.rps.weapon.WeaponFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -10,7 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class PrsGameTest {
+public class GameTest {
   @Mock
   Player player1;
   @Mock
@@ -28,12 +28,12 @@ public class PrsGameTest {
     when(player1.getScore()).thenReturn(1);
     when(player2.getScore()).thenReturn(0);
 
-    PrsGame prsGame = new PrsGame(player1, player2, weaponFactory, userInterface, 1);
-    prsGame.play();
+    Game rpsGame = new Game(player1, player2, weaponFactory, userInterface, 1);
+    rpsGame.play();
 
     verify(userInterface).display(eq("Welcome to the Paper-Rock-Scissors game!"));
-    verify(player1).chooseWeapon(eq(prsGame));
-    verify(player2).chooseWeapon(eq(prsGame));
+    verify(player1).chooseWeapon(eq(rpsGame));
+    verify(player2).chooseWeapon(eq(rpsGame));
     verify(player1).challenge(eq(player2));
     verify(userInterface).display(eq("Player1 won this round!"));
     verify(userInterface).display(eq("*** Final Result ***"));
@@ -50,12 +50,12 @@ public class PrsGameTest {
     when(player1.getScore()).thenReturn(0);
     when(player2.getScore()).thenReturn(1);
 
-    PrsGame prsGame = new PrsGame(player1, player2, weaponFactory, userInterface, 1);
-    prsGame.play();
+    Game rpsGame = new Game(player1, player2, weaponFactory, userInterface, 1);
+    rpsGame.play();
 
     verify(userInterface).display(eq("Welcome to the Paper-Rock-Scissors game!"));
-    verify(player1).chooseWeapon(eq(prsGame));
-    verify(player2).chooseWeapon(eq(prsGame));
+    verify(player1).chooseWeapon(eq(rpsGame));
+    verify(player2).chooseWeapon(eq(rpsGame));
     verify(player1).challenge(eq(player2));
     verify(userInterface).display(eq("Player2 won this round!"));
     verify(userInterface).display(eq("*** Final Result ***"));
@@ -72,12 +72,12 @@ public class PrsGameTest {
     when(player1.getScore()).thenReturn(0);
     when(player2.getScore()).thenReturn(0);
 
-    PrsGame prsGame = new PrsGame(player1, player2, weaponFactory, userInterface, 1);
-    prsGame.play();
+    Game rpsGame = new Game(player1, player2, weaponFactory, userInterface, 1);
+    rpsGame.play();
 
     verify(userInterface).display(eq("Welcome to the Paper-Rock-Scissors game!"));
-    verify(player1).chooseWeapon(eq(prsGame));
-    verify(player2).chooseWeapon(eq(prsGame));
+    verify(player1).chooseWeapon(eq(rpsGame));
+    verify(player2).chooseWeapon(eq(rpsGame));
     verify(player1).challenge(eq(player2));
     verify(userInterface, times(2)).display(eq("It's a draw!"));
     verify(userInterface).display(eq("*** Final Result ***"));

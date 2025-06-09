@@ -1,4 +1,4 @@
-package com.game.prs.weapon;
+package com.game.rps.weapon;
 
 public interface Weapon {
   int beat(Weapon weapon);

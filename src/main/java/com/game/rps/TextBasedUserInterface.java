@@ -1,4 +1,4 @@
-package com.game.prs;
+package com.game.rps;
 
 import java.util.Scanner;
 

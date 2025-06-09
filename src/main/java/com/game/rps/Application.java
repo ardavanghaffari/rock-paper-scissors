@@ -1,13 +1,13 @@
-package com.game.prs;
+package com.game.rps;
 
-import com.game.prs.player.Computer;
-import com.game.prs.player.Human;
-import com.game.prs.weapon.Paper;
-import com.game.prs.weapon.Rock;
-import com.game.prs.weapon.Scissor;
-import com.game.prs.weapon.WeaponFactory;
+import com.game.rps.player.Computer;
+import com.game.rps.player.Human;
+import com.game.rps.weapon.Paper;
+import com.game.rps.weapon.Rock;
+import com.game.rps.weapon.Scissor;
+import com.game.rps.weapon.WeaponFactory;
 
-public class PrsApplication {
+public class Application {
   private static final int MIN_ALLOWED_ARG = 1;
   private static final int MAX_ALLOWED_ARG = 20;
 
@@ -16,7 +16,7 @@ public class PrsApplication {
 
     WeaponFactory weaponFactory = new WeaponFactory(Paper::new, Rock::new, Scissor::new);
     TextBasedUserInterface userInterface = new TextBasedUserInterface();
-    PrsGame game = new PrsGame(new Human(), new Computer(), weaponFactory, userInterface, arg);
+    Game game = new Game(new Human(), new Computer(), weaponFactory, userInterface, arg);
 
     game.play();
   }

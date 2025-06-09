@@ -1,12 +1,12 @@
-package com.game.prs.player;
+package com.game.rps.player;
 
-import com.game.prs.PrsGame;
-import com.game.prs.weapon.Weapon;
+import com.game.rps.Game;
+import com.game.rps.weapon.Weapon;
 
 public abstract class Player {
   private int score;
   private Weapon weapon;
-  public abstract void chooseWeapon(PrsGame game);
+  public abstract void chooseWeapon(Game game);
 
   public int getScore() {
     return score;

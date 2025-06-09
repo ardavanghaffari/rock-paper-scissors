@@ -1,16 +1,16 @@
-package com.game.prs.player;
+package com.game.rps.player;
 
-import com.game.prs.weapon.WeaponFactory;
-import com.game.prs.PrsGame;
-import com.game.prs.TextBasedUserInterface;
-import com.game.prs.weapon.Weapon;
+import com.game.rps.weapon.WeaponFactory;
+import com.game.rps.Game;
+import com.game.rps.TextBasedUserInterface;
+import com.game.rps.weapon.Weapon;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class Human extends Player {
   @Override
-  public void chooseWeapon(PrsGame game) {
+  public void chooseWeapon(Game game) {
     TextBasedUserInterface ui = game.getUserInterface();
     WeaponFactory factory = game.getWeaponFactory();
 
