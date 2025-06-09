@@ -6,7 +6,8 @@ import java.util.Random;
 import java.util.function.Supplier;
 
 public class WeaponFactory {
-  private Random rand = new Random();
+
+  private final Random rand = new Random();
   private final Supplier<Weapon>[] suppliers;
 
   public WeaponFactory(Supplier<Weapon>... suppliers) {
@@ -24,4 +25,5 @@ public class WeaponFactory {
   public List<Weapon> getAllWeapons() {
     return Arrays.stream(suppliers).map(Supplier::get).toList();
   }
+
 }

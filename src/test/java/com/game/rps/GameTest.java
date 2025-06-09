@@ -2,38 +2,53 @@ package com.game.rps;
 
 import com.game.rps.player.Player;
 import com.game.rps.weapon.WeaponFactory;
+
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.*;
-
 @ExtendWith(MockitoExtension.class)
 public class GameTest {
+
   @Mock
-  Player player1;
+  private Player player1;
   @Mock
-  Player player2;
+  private Player player2;
   @Mock
-  WeaponFactory weaponFactory;
+  private WeaponFactory weaponFactory;
   @Mock
-  TextBasedUserInterface userInterface;
+  private TextBasedUserInterface userInterface;
+
+  private Game game;
+
+  @BeforeEach
+  void setup() {
+    game = new Game(player1, player2, weaponFactory, userInterface, 1);
+  }
 
   @Test
-  public void testPlayWithPlayer1Winner() {
+  void testPlay_WhenPlayer1Wins() {
+    // given
     when(player1.challenge(player2)).thenReturn(1);
     when(player1.toString()).thenReturn("Player1");
     when(player2.toString()).thenReturn("Player2");
     when(player1.getScore()).thenReturn(1);
     when(player2.getScore()).thenReturn(0);
 
-    Game rpsGame = new Game(player1, player2, weaponFactory, userInterface, 1);
-    rpsGame.play();
+    // when
+    game.play();
 
-    verify(userInterface).display(eq("Welcome to the Paper-Rock-Scissors game!"));
-    verify(player1).chooseWeapon(eq(rpsGame));
-    verify(player2).chooseWeapon(eq(rpsGame));
+    // then
+    verify(userInterface).display(eq("Welcome to the Rock-Paper-Scissors game!"));
+    verify(player1).chooseWeapon(eq(game));
+    verify(player2).chooseWeapon(eq(game));
     verify(player1).challenge(eq(player2));
     verify(userInterface).display(eq("Player1 won this round!"));
     verify(userInterface).display(eq("*** Final Result ***"));
@@ -43,19 +58,21 @@ public class GameTest {
   }
 
   @Test
-  public void testPlayWithPlayer2Winner() {
+  void testPlay_WhenPlayer2Wins() {
+    // given
     when(player1.challenge(player2)).thenReturn(-1);
     when(player1.toString()).thenReturn("Player1");
     when(player2.toString()).thenReturn("Player2");
     when(player1.getScore()).thenReturn(0);
     when(player2.getScore()).thenReturn(1);
 
-    Game rpsGame = new Game(player1, player2, weaponFactory, userInterface, 1);
-    rpsGame.play();
+    // when
+    game.play();
 
-    verify(userInterface).display(eq("Welcome to the Paper-Rock-Scissors game!"));
-    verify(player1).chooseWeapon(eq(rpsGame));
-    verify(player2).chooseWeapon(eq(rpsGame));
+    // then
+    verify(userInterface).display(eq("Welcome to the Rock-Paper-Scissors game!"));
+    verify(player1).chooseWeapon(eq(game));
+    verify(player2).chooseWeapon(eq(game));
     verify(player1).challenge(eq(player2));
     verify(userInterface).display(eq("Player2 won this round!"));
     verify(userInterface).display(eq("*** Final Result ***"));
@@ -65,23 +82,26 @@ public class GameTest {
   }
 
   @Test
-  public void testPlayDraw() {
+  void testPlay_WhenDraw() {
+    // given
     when(player1.challenge(player2)).thenReturn(0);
     when(player1.toString()).thenReturn("Player1");
     when(player2.toString()).thenReturn("Player2");
     when(player1.getScore()).thenReturn(0);
     when(player2.getScore()).thenReturn(0);
 
-    Game rpsGame = new Game(player1, player2, weaponFactory, userInterface, 1);
-    rpsGame.play();
+    // when
+    game.play();
 
-    verify(userInterface).display(eq("Welcome to the Paper-Rock-Scissors game!"));
-    verify(player1).chooseWeapon(eq(rpsGame));
-    verify(player2).chooseWeapon(eq(rpsGame));
+    // then
+    verify(userInterface).display(eq("Welcome to the Rock-Paper-Scissors game!"));
+    verify(player1).chooseWeapon(eq(game));
+    verify(player2).chooseWeapon(eq(game));
     verify(player1).challenge(eq(player2));
     verify(userInterface, times(2)).display(eq("It's a draw!"));
     verify(userInterface).display(eq("*** Final Result ***"));
     verify(userInterface).display(eq("Player1 scored: 0, Player2 scored: 0"));
     verify(userInterface).display(eq("Thanks for playing. Goodbye!"));
   }
+
 }

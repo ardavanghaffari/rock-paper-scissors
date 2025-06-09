@@ -3,6 +3,7 @@ package com.game.rps.player;
 import com.game.rps.Game;
 
 public class Computer extends Player {
+
   @Override
   public void chooseWeapon(Game game) {
     setWeapon(game.getWeaponFactory().create());
@@ -13,4 +14,5 @@ public class Computer extends Player {
   public String toString() {
     return "The computer";
   }
+
 }

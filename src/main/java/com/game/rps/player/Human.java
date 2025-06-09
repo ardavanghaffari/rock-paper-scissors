@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Human extends Player {
+
   @Override
   public void chooseWeapon(Game game) {
     TextBasedUserInterface ui = game.getUserInterface();
@@ -22,17 +23,22 @@ public class Human extends Player {
 
   private int getWeaponOption(List<Weapon> weapons, TextBasedUserInterface ui) {
     ui.display("Choose your weapon:");
-    IntStream.range(0, weapons.size()).forEach((i -> ui.display((i + 1) + "- " + weapons.get(i))));
+
+    IntStream.range(0, weapons.size())
+        .forEach((i -> ui.display((i + 1) + "- " + weapons.get(i))));
 
     while (true) {
       try {
         ui.display("Your choice: ", false);
+
         int option = Integer.parseInt(ui.readUserInput());
         if (option < 1 || option > weapons.size()) {
           ui.display(String.format("Enter a number between 1 and %d", weapons.size()));
           continue;
         }
+
         ui.displayEmptyLine();
+
         return option;
       } catch (NumberFormatException e) {
         ui.display("Invalid input, Enter a number!");
@@ -41,5 +47,8 @@ public class Human extends Player {
   }
 
   @Override
-  public String toString() { return "You"; }
+  public String toString() {
+    return "You";
+  }
+
 }

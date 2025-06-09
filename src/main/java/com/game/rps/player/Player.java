@@ -4,8 +4,10 @@ import com.game.rps.Game;
 import com.game.rps.weapon.Weapon;
 
 public abstract class Player {
+
   private int score;
   private Weapon weapon;
+
   public abstract void chooseWeapon(Game game);
 
   public int getScore() {
@@ -22,15 +24,17 @@ public abstract class Player {
 
   public int challenge(Player other) {
     int result = weapon.beat(other.getWeapon());
-    if (result > 0) {
+
+    if (result > 0)
       this.updateScore(result);
-    } else {
+    else
       other.updateScore(-result);
-    }
+
     return result;
   }
 
   private void updateScore(int score) {
     this.score += score;
   }
+
 }

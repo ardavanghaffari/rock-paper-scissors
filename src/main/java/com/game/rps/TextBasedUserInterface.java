@@ -3,6 +3,7 @@ package com.game.rps;
 import java.util.Scanner;
 
 public class TextBasedUserInterface {
+
   private final Scanner scanner = new Scanner(System.in);
 
   public void display(String string) {
@@ -10,11 +11,10 @@ public class TextBasedUserInterface {
   }
 
   public void display(String string, boolean newLine) {
-    if (newLine) {
+    if (newLine)
       System.out.println(string);
-    } else {
+    else
       System.out.print(string);
-    }
   }
 
   public void displayEmptyLine() {
@@ -24,5 +24,5 @@ public class TextBasedUserInterface {
   public String readUserInput() {
     return scanner.next();
   }
-}
 
+}

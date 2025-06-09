@@ -14,16 +14,17 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class PlayerTest {
-  @Mock
-  Weapon selfWeapon;
-  @Mock
-  Weapon otherWeapon;
 
-  Player other;
-  Player self;
+  @Mock
+  private Weapon selfWeapon;
+  @Mock
+  private Weapon otherWeapon;
+
+  private Player other;
+  private Player self;
 
   @BeforeEach
-  public void setup() {
+  void setup() {
     self = new PlayerDouble();
     other = new PlayerDouble();
     self.setWeapon(selfWeapon);
@@ -31,7 +32,7 @@ public class PlayerTest {
   }
 
   @Test
-  public void testChallengeSelfWins() {
+  void testChallengeSelfWins() {
     when(selfWeapon.beat(any(Weapon.class))).thenReturn(1);
 
     int result = self.challenge(other);
@@ -42,7 +43,7 @@ public class PlayerTest {
   }
 
   @Test
-  public void testChallengeOtherWins() {
+  void testChallengeOtherWins() {
     when(selfWeapon.beat(any(Weapon.class))).thenReturn(-1);
 
     int result = self.challenge(other);
@@ -53,7 +54,7 @@ public class PlayerTest {
   }
 
   @Test
-  public void testChallengeDraw() {
+  void testChallengeDraw() {
     when(selfWeapon.beat(any(Weapon.class))).thenReturn(0);
 
     int result = self.challenge(other);
@@ -63,8 +64,11 @@ public class PlayerTest {
     assertEquals(0, result);
   }
 
-  public class PlayerDouble extends Player {
+  private static class PlayerDouble extends Player {
+
     @Override
     public void chooseWeapon(Game game) {}
+
   }
+
 }

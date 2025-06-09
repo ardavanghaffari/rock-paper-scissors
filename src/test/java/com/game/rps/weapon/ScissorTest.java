@@ -1,5 +1,6 @@
 package com.game.rps.weapon;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,28 +8,34 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ScissorTest {
+
+  private Scissor scissor;
+
+  @BeforeEach
+  void setup() {
+    scissor = new Scissor();
+  }
+
   @Test
-  public void testBeat() {
+  void testBeat() {
     Weapon weapon = mock(Weapon.class);
     when(weapon.beatScissor()).thenReturn(1);
-
-    Scissor Scissor = new Scissor();
-
-    assertEquals(-1, Scissor.beat(weapon));
+    assertEquals(-1, scissor.beat(weapon));
   }
 
   @Test
-  public void testBeatPaper() {
-    assertEquals(1, new Scissor().beatPaper());
+  void testBeatPaper() {
+    assertEquals(1, scissor.beatPaper());
   }
 
   @Test
-  public void testBeatRock() {
-    assertEquals(-1, new Scissor().beatRock());
+  void testBeatRock() {
+    assertEquals(-1, scissor.beatRock());
   }
 
   @Test
-  public void testBeatScissor() {
-    assertEquals(0, new Scissor().beatScissor());
+  void testBeatScissor() {
+    assertEquals(0, scissor.beatScissor());
   }
+
 }
