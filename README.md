@@ -1,5 +1,7 @@
 # Rock Paper Scissors
 
+[![Tests](https://github.com/ardavanghaffari/rock-paper-scissors/actions/workflows/build.yaml/badge.svg)](https://github.com/ardavanghaffari/rock-paper-scissors/actions/workflows/build.yaml)
+
 A console application for playing the rock-paper-scissors game between a computer and a user.
 A simple, extensible code in Java using the _SOLID_ principles, accompanied with cost-effective
 tests!
