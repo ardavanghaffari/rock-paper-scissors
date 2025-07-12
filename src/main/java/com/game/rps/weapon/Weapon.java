@@ -2,11 +2,11 @@ package com.game.rps.weapon;
 
 public interface Weapon {
 
-  int beat(Weapon weapon);
+    int beat(Weapon weapon);
 
-  int beatPaper();
+    int beatPaper();
 
-  int beatRock();
+    int beatRock();
 
-  int beatScissor();
+    int beatScissor();
 }

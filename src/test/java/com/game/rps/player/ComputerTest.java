@@ -18,28 +18,28 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class ComputerTest {
 
-  @Mock
-  private Game game;
-  @Mock
-  private WeaponFactory weaponFactory;
-  @Mock
-  private TextBasedUserInterface userInterface;
-  @Mock
-  private Weapon weapon;
+    @Mock
+    private Game game;
+    @Mock
+    private WeaponFactory weaponFactory;
+    @Mock
+    private TextBasedUserInterface userInterface;
+    @Mock
+    private Weapon weapon;
 
-  private Computer computer = new Computer();
+    private final Computer computer = new Computer();
 
-  @Test
-  public void testChooseWeapon() {
-    when(game.getUserInterface()).thenReturn(userInterface);
-    when(game.getWeaponFactory()).thenReturn(weaponFactory);
-    when(weapon.toString()).thenReturn("weapon");
-    when(weaponFactory.create()).thenReturn(weapon);
+    @Test
+    public void testChooseWeapon() {
+        when(game.getUserInterface()).thenReturn(userInterface);
+        when(game.getWeaponFactory()).thenReturn(weaponFactory);
+        when(weapon.toString()).thenReturn("weapon");
+        when(weaponFactory.create()).thenReturn(weapon);
 
-    computer.chooseWeapon(game);
+        computer.chooseWeapon(game);
 
-    assertEquals(weapon, computer.getWeapon());
-    verify(userInterface).display(eq("The computer chose: weapon"));
-  }
+        assertEquals(weapon, computer.getWeapon());
+        verify(userInterface).display(eq("The computer chose: weapon"));
+    }
 
 }

@@ -15,60 +15,61 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class PlayerTest {
 
-  @Mock
-  private Weapon selfWeapon;
-  @Mock
-  private Weapon otherWeapon;
+    @Mock
+    private Weapon selfWeapon;
+    @Mock
+    private Weapon otherWeapon;
 
-  private Player other;
-  private Player self;
+    private Player other;
+    private Player self;
 
-  @BeforeEach
-  void setup() {
-    self = new PlayerDouble();
-    other = new PlayerDouble();
-    self.setWeapon(selfWeapon);
-    other.setWeapon(otherWeapon);
-  }
+    @BeforeEach
+    void setup() {
+        self = new PlayerDouble();
+        other = new PlayerDouble();
+        self.setWeapon(selfWeapon);
+        other.setWeapon(otherWeapon);
+    }
 
-  @Test
-  void testChallengeSelfWins() {
-    when(selfWeapon.beat(any(Weapon.class))).thenReturn(1);
+    @Test
+    void testChallengeSelfWins() {
+        when(selfWeapon.beat(any(Weapon.class))).thenReturn(1);
 
-    int result = self.challenge(other);
+        int result = self.challenge(other);
 
-    assertEquals(1, self.getScore());
-    assertEquals(0, other.getScore());
-    assertEquals(1, result);
-  }
+        assertEquals(1, self.getScore());
+        assertEquals(0, other.getScore());
+        assertEquals(1, result);
+    }
 
-  @Test
-  void testChallengeOtherWins() {
-    when(selfWeapon.beat(any(Weapon.class))).thenReturn(-1);
+    @Test
+    void testChallengeOtherWins() {
+        when(selfWeapon.beat(any(Weapon.class))).thenReturn(-1);
 
-    int result = self.challenge(other);
+        int result = self.challenge(other);
 
-    assertEquals(0, self.getScore());
-    assertEquals(1, other.getScore());
-    assertEquals(-1, result);
-  }
+        assertEquals(0, self.getScore());
+        assertEquals(1, other.getScore());
+        assertEquals(-1, result);
+    }
 
-  @Test
-  void testChallengeDraw() {
-    when(selfWeapon.beat(any(Weapon.class))).thenReturn(0);
+    @Test
+    void testChallengeDraw() {
+        when(selfWeapon.beat(any(Weapon.class))).thenReturn(0);
 
-    int result = self.challenge(other);
+        int result = self.challenge(other);
 
-    assertEquals(0, self.getScore());
-    assertEquals(0, other.getScore());
-    assertEquals(0, result);
-  }
+        assertEquals(0, self.getScore());
+        assertEquals(0, other.getScore());
+        assertEquals(0, result);
+    }
 
-  private static class PlayerDouble extends Player {
+    private static class PlayerDouble extends Player {
 
-    @Override
-    public void chooseWeapon(Game game) {}
+        @Override
+        public void chooseWeapon(Game game) {
+        }
 
-  }
+    }
 
 }

@@ -9,33 +9,33 @@ import static org.mockito.Mockito.when;
 
 public class PaperTest {
 
-  private Paper paper;
+    private Paper paper;
 
-  @BeforeEach
-  void setUp() {
-    paper = new Paper();
-  }
+    @BeforeEach
+    void setUp() {
+        paper = new Paper();
+    }
 
-  @Test
-  void testBeat() {
-    Weapon weapon = mock(Weapon.class);
-    when(weapon.beatPaper()).thenReturn(1);
-    assertEquals(-1, paper.beat(weapon));
-  }
+    @Test
+    void testBeat() {
+        Weapon weapon = mock(Weapon.class);
+        when(weapon.beatPaper()).thenReturn(1);
+        assertEquals(-1, paper.beat(weapon));
+    }
 
-  @Test
-  void testBeatPaper() {
-    assertEquals(0, paper.beatPaper());
-  }
+    @Test
+    void testBeatPaper() {
+        assertEquals(0, paper.beatPaper());
+    }
 
-  @Test
-  void testBeatRock() {
-    assertEquals(1, paper.beatRock());
-  }
+    @Test
+    void testBeatRock() {
+        assertEquals(1, paper.beatRock());
+    }
 
-  @Test
-  void testBeatScissor() {
-    assertEquals(-1, paper.beatScissor());
-  }
+    @Test
+    void testBeatScissor() {
+        assertEquals(-1, paper.beatScissor());
+    }
 
 }
